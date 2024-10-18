@@ -10,7 +10,7 @@ def handle():
 
   data = { 
     "Modules" : 15, 
-    "Subject" : "bla"
+    "Subject" : "bla2"
   } 
   
   return jsonify(data)
