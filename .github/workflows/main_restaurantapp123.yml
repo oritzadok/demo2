@@ -36,9 +36,3 @@ jobs:
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FFCCA68A792049C5A1D80997358F3B73 }}
 
-    - uses: azure/sql-action@v2.3
-      with:        
-        connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        path: './sql/Restaurant.sql'
-        action: 'publish'
-
