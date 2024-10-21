@@ -41,5 +41,5 @@ jobs:
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
         path: './sql/Restaurant.sql'
         action: 'publish'
-        arguments: '/p:DropObjectsNotInSource=true'
+        skip-firewall-check: true
 
