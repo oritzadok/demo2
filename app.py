@@ -26,9 +26,9 @@ def handle():
     if style:
         subqueries.append(f"Style = \'{style}\'")
     if vegetarian:
-        subqueries.append(f"Vegetarian = {int(vegetarian.lower() == "yes")}")
+        subqueries.append(f"Vegetarian = {int(vegetarian.lower() == 'yes')}")
     if doesDeliveries:
-        subqueries.append(f"DoesDeliveries = {int(doesDeliveries.lower() == "yes")}")
+        subqueries.append(f"DoesDeliveries = {int(doesDeliveries.lower() == 'yes')}")
     if openAt:
         subqueries.append(f"OpeningHour <= \'{openAt}\' AND ClosingHour >= \'{openAt}\'")
 
@@ -47,8 +47,6 @@ def handle():
         conn = pyodbc.connect(conn_str)
         cursor = conn.cursor()
         cursor.execute(query)
-        cursor.close()
-        conn.close()
 
         response = {"restaurantRecommendation": []}
 
@@ -63,8 +61,11 @@ def handle():
                 "closingHour": row[6]
             })
 
+        cursor.close()
+        conn.close()
+
         pprint(response)
-            
+
         return jsonify(response)
 
     else:
