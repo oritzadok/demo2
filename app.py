@@ -16,6 +16,7 @@ def handle():
     vegetarian = request.args['vegetarian']
     doesDeliveries = request.args['doesDeliveries']
     openAt = request.args['openAt']
+    print(name); name = request.args.get('name'); print(name)
 
     subqueries = []
 
